@@ -43,7 +43,7 @@ public class ApplicationService {
     }
 
     @Transactional
-    public void deleteApp(Application application) {
+    public void delete(Application application) {
         applicationRepository.delete(application);
     }
 

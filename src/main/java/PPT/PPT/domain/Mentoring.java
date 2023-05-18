@@ -1,5 +1,6 @@
 package PPT.PPT.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,14 +20,17 @@ public class Mentoring {
     @Column(name = "mentoring_id")
     private Long id;
 
+    private String title;
+
     @ManyToOne(fetch = FetchType.LAZY)
     private Member mentor;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Member mentee;
 
-    public static Mentoring createMentoring(Member mentor, Member mentee) {
+    public static Mentoring createMentoring(Member mentor, Member mentee, String title) {
         Mentoring mentoring = new Mentoring();
+        mentoring.setTitle(title);
         mentoring.setMentor(mentor);
         mentoring.setMentee(mentee);
         return mentoring;

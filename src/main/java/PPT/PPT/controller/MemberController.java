@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
@@ -22,16 +23,19 @@ public class MemberController {
 
     @PostMapping("/members/new")
     public ResponseEntity<MemberResponseDto> createMember(@RequestBody MemberRequestDto dto) {
-        Member member = new Member(dto.getName(), dto.getSkill(), dto.getInterestSkill(), dto.getCompany(), dto.getEmail(), dto.getPassword(), dto.getCareer());
+        Member member = new Member(dto.getName(),
+                dto.getSkill(), dto.getInterestSkill(),
+                dto.getCompany(), dto.getEmail(),
+                dto.getPassword(), dto.getCareer());
         memberService.join(member);
         MemberResponseDto responseDto = MemberResponseDto.from(member);
         return ResponseEntity.ok().body(responseDto);
     }
 
     @GetMapping("/members")
-    public String list(@ModelAttribute("memberSearch") MemberSearch cond, Model model) {
+    public ResponseEntity<List<MemberResponseDto>> getMembers(@ModelAttribute("memberSearch") MemberSearch cond, Model model) {
         List<Member> members = memberService.findMembers(cond);
-        model.addAttribute("members", members);
-        return "members/memberList";
+        List<MemberResponseDto> dtos = members.stream().map(MemberResponseDto::from).collect(Collectors.toList());
+        return ResponseEntity.ok().body(dtos);
     }
 }

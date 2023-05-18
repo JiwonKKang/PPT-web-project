@@ -55,6 +55,13 @@ public class Application {
         mentee.getSentApp().add(this);
     }
 
+    public void deleteApplication(Member mentor, Member mentee) {
+        mentor.getReceivedApp().remove(this);
+        mentee.getSentApp().remove(this);
+        this.mentor = null;
+        this.mentee = null;
+    }
+
 
 }
 

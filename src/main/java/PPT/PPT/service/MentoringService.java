@@ -1,7 +1,9 @@
 package PPT.PPT.service;
 
+import PPT.PPT.domain.Application;
 import PPT.PPT.domain.Member;
 import PPT.PPT.domain.Mentoring;
+import PPT.PPT.domain.repository.Dto.MentoringRequestDto;
 import PPT.PPT.domain.repository.MemberRepository;
 import PPT.PPT.domain.repository.MentoringRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,11 +20,16 @@ public class MentoringService {
 
     private final MentoringRepository mentoringRepository;
     private final MemberRepository memberRepository;
+    private final ApplicationService applicationService;
 
-    public Long startMentoring(Long mentorId, Long menteeId) {
-        Member mentor = memberRepository.findOne(mentorId);
-        Member mentee = memberRepository.findOne(menteeId);
-        Mentoring mentoring = Mentoring.createMentoring(mentor, mentee);
+    public Long startMentoring(MentoringRequestDto dto) {
+        Member mentor = memberRepository.findOne(dto.getMentorId());
+        Member mentee = memberRepository.findOne(dto.getMenteeId());
+        Mentoring mentoring = Mentoring.createMentoring(mentor, mentee, dto.getTitle());
+
+        Application app = applicationService.findOne(dto.getApplicationId());
+        app.deleteApplication(mentor, mentee);
+        applicationService.delete(app); // 신청을 수락하여 멘토링이 시작되었다면 신청을 삭제
 
         return mentoringRepository.save(mentoring);
     }
@@ -34,4 +41,10 @@ public class MentoringService {
     public List<Mentoring> findByMentee(Long menteeId) {
         return mentoringRepository.findByMentee(menteeId);
     }
+
+    public Mentoring findMentoring(Long mentoringId) {
+        return mentoringRepository.findOne(mentoringId);
+    }
+
+
 }

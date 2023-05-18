@@ -24,6 +24,6 @@ public class ApplicationRepository {
         }
 
         public void delete(Application application) {
-        em.remove(application);
-    }
+            em.remove(application);
+        }
 }

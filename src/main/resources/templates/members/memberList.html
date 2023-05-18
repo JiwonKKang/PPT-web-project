@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header" />
+<body>
+<div class="container">
+  <div th:replace="fragments/bodyHeader :: bodyHeader" />
+  <div>
+    <form th:object="${memberSearch}" method="get" class="form-inline">
+      <div class="row">
+        <div class="col">
+          <input type="text" th:field="*{skill}" class="form-control" placeholder="배우고싶은 기술을 입력해주세요."/>
+        </div>
+        <div class="col">
+          <input type="text" th:field="*{company}" class="form-control" placeholder="회사명을 입력해주세요."/>
+        </div>
+        <div class="col">
+          <button type="submit" class="btn btn-secondary mb-2">검색</button>
+        </div>
+      </div>
+    </form>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>이름</th>
+        <th>전문 분야</th>
+        <th>흥미 분야</th>
+        <th>회사</th>
+        <th>경력</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="member : ${members}">
+        <td th:text="${member.name}"></td>
+        <td th:text="${member.skill}"></td>
+        <td th:text="${member.interestSkill}"></td>
+        <td th:text="${member.company}"></td>
+        <td th:text="${member.career}+'년'"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div th:replace="fragments/footer :: footer" />
+</div> <!-- /container -->
+</body>
+</html>

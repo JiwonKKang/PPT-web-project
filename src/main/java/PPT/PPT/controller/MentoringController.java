@@ -32,16 +32,23 @@ public class MentoringController {
     }
 
     @GetMapping("/mentorings/mentor/{id}")
-    public ResponseEntity<List<MentoringResponseDto>> getMentoringAsMentor(@PathVariable("id") Long id) {
+    public ResponseEntity<List<MentoringResponseDto>> getMentoringsAsMentor(@PathVariable("id") Long id) {
         List<Mentoring> mentoringList = mentoringService.findByMentor(id);
         List<MentoringResponseDto> dtos = mentoringList.stream().map(MentoringResponseDto::from).collect(Collectors.toList());
         return ResponseEntity.ok().body(dtos);
     }
 
     @GetMapping("/mentorings/mentee/{id}")
-    public ResponseEntity<List<MentoringResponseDto>> getMentoringAsMentee(@PathVariable("id") Long id) {
+    public ResponseEntity<List<MentoringResponseDto>> getMentoringsAsMentee(@PathVariable("id") Long id) {
         List<Mentoring> mentoringList = mentoringService.findByMentee(id);
         List<MentoringResponseDto> dtos = mentoringList.stream().map(MentoringResponseDto::from).collect(Collectors.toList());
         return ResponseEntity.ok().body(dtos);
+    }
+
+    @GetMapping("/mentorings/{id}")
+    public ResponseEntity<MentoringResponseDto> getMentoring(@PathVariable("id") Long id) {
+        Mentoring mentoring = mentoringService.findMentoring(id);
+        MentoringResponseDto responseDto = MentoringResponseDto.from(mentoring);
+        return ResponseEntity.ok().body(responseDto);
     }
 }

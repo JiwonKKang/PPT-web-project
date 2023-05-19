@@ -28,17 +28,20 @@ public class Application {
     @JoinColumn(name = "mentor_id")
     private Member mentor;
 
+    private Long price;
+
     private String motivation;
 
     private LocalDateTime applicationDate;
 
     //==생성 메서드==//
 
-    public static Application createApplication(Member mentor, Member mentee, String motivation) {
+    public static Application createApplication(Member mentor, Member mentee, String motivation, Long price) {
         Application application = new Application();
         application.setMotivation(motivation);
         application.setMentor(mentor);
         application.setMentee(mentee);
+        application.setPrice(price);
         application.setApplicationDate(LocalDateTime.now());
         return application;
     }

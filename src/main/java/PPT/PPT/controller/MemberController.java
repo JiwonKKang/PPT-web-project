@@ -33,9 +33,16 @@ public class MemberController {
     }
 
     @GetMapping("/members")
-    public ResponseEntity<List<MemberResponseDto>> getMembers(@ModelAttribute("memberSearch") MemberSearch cond, Model model) {
+    public ResponseEntity<List<MemberResponseDto>> getMembers(@ModelAttribute("memberSearch") MemberSearch cond) {
         List<Member> members = memberService.findMembers(cond);
         List<MemberResponseDto> dtos = members.stream().map(MemberResponseDto::from).collect(Collectors.toList());
         return ResponseEntity.ok().body(dtos);
+    }
+
+    @GetMapping("/members/{id}")
+    public ResponseEntity<MemberResponseDto> getMember(@PathVariable("id") Long id) {
+        Member member = memberService.findOne(id);
+        MemberResponseDto resDto = MemberResponseDto.from(member);
+        return ResponseEntity.ok().body(resDto);
     }
 }

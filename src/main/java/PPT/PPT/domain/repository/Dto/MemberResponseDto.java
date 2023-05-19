@@ -11,6 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MemberResponseDto {
+    private Long id;
     private String name;
     private String skill;
     private String interestSkill;
@@ -19,6 +20,7 @@ public class MemberResponseDto {
 
     public static MemberResponseDto from(Member member) {
         MemberResponseDto dto = new MemberResponseDto();
+        dto.setId(member.getId());
         dto.setName(member.getName());
         dto.setSkill(member.getSkill());
         dto.setInterestSkill(member.getInterestSkill());

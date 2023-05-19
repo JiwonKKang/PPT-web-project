@@ -31,11 +31,11 @@ public class TestDataInit {
         memberRepository.save(member3);
         memberRepository.save(member4);
         memberRepository.save(member5);
-        applicationRepository.save(Application.createApplication(member1, member2, "저는 김철수님과 함께 프로젝트를 진행하고 싶습니다."));
-        applicationRepository.save(Application.createApplication(member3, member4, "안녕하세요, 박민수님과 함께 일하고 싶습니다."));
-        applicationRepository.save(Application.createApplication(member2, member5, "나지은님과 협업하고 싶습니다."));
-        applicationRepository.save(Application.createApplication(member1, member4, "박민수님과 함께 프로젝트를 진행하고 싶습니다."));
-        applicationRepository.save(Application.createApplication(member5, member3, "이영희님과의 협업을 기대합니다."));
+        applicationRepository.save(Application.createApplication(member1, member2, "저는 김철수님과 함께 프로젝트를 진행하고 싶습니다.", 200000L));
+        applicationRepository.save(Application.createApplication(member3, member4, "안녕하세요, 박민수님과 함께 일하고 싶습니다.",300000L));
+        applicationRepository.save(Application.createApplication(member2, member5, "나지은님과 협업하고 싶습니다.",250000L));
+        applicationRepository.save(Application.createApplication(member1, member4, "박민수님과 함께 프로젝트를 진행하고 싶습니다.",100000L));
+        applicationRepository.save(Application.createApplication(member5, member3, "이영희님과의 협업을 기대합니다.", 150000L));
 
     }
 }

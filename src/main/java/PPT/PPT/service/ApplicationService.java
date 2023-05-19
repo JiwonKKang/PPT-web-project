@@ -2,7 +2,7 @@ package PPT.PPT.service;
 
 import PPT.PPT.domain.Application;
 import PPT.PPT.domain.Member;
-import PPT.PPT.domain.repository.Dto.ApplicationDto;
+import PPT.PPT.domain.repository.Dto.ApplicationRequestDto;
 import PPT.PPT.domain.repository.ApplicationRepository;
 import PPT.PPT.domain.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,12 +20,12 @@ public class ApplicationService {
     private final MemberRepository memberRepository;
 
     @Transactional
-    public Long apply(ApplicationDto dto) {
+    public Long apply(ApplicationRequestDto dto) {
 
         Member mentee = memberRepository.findOne(dto.getMenteeId());
         Member mentor = memberRepository.findOne(dto.getMentorId());
 
-        Application application = Application.createApplication(mentee, mentor, dto.getMotivation());
+        Application application = Application.createApplication(mentee, mentor, dto.getMotivation(), dto.getPrice());
 
         return applicationRepository.save(application);
     }

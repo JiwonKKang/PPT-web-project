@@ -1,6 +1,5 @@
-package PPT.PPT.domain;
+package PPT.PPT.domain.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

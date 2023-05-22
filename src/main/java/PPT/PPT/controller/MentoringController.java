@@ -1,16 +1,12 @@
 package PPT.PPT.controller;
 
-import PPT.PPT.domain.Application;
-import PPT.PPT.domain.Mentoring;
-import PPT.PPT.domain.repository.Dto.MentoringRequestDto;
-import PPT.PPT.domain.repository.Dto.MentoringResponseDto;
-import PPT.PPT.service.ApplicationService;
+import PPT.PPT.domain.entity.Mentoring;
+import PPT.PPT.domain.repository.dto.mentoring.MentoringRequestDto;
+import PPT.PPT.domain.repository.dto.mentoring.MentoringResponseDto;
 import PPT.PPT.service.MentoringService;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

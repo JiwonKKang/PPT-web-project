@@ -1,6 +1,6 @@
 package PPT.PPT.domain.repository;
 
-import PPT.PPT.domain.Mentoring;
+import PPT.PPT.domain.entity.Mentoring;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

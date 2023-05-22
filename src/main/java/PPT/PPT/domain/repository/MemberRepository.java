@@ -1,9 +1,8 @@
 package PPT.PPT.domain.repository;
 
-import PPT.PPT.domain.Member;
+import PPT.PPT.domain.entity.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import java.util.List;

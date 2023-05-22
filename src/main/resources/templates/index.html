@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Chat</title>
+    <style>
+        .message-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message {
+            margin: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .sent {
+            align-self: flex-start;
+            background-color: #e6f7ff;
+        }
+
+        .received {
+            align-self: flex-end;
+            background-color: #f2f2f2;
+        }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.1/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script>
+        var socket = new SockJS('http://localhost:8080/websocket');
+        var stompClient = Stomp.over(socket);
+
+        stompClient.connect({}, function (frame) {
+            console.log('Connected: ' + frame);
+
+            stompClient.subscribe('/sub/chat/mentoring/1', function (message) {
+                var receivedMessage = JSON.parse(message.body);
+                showMessage(receivedMessage);
+            });
+        });
+
+        function sendMessage() {
+            var messageInput = $('#messageInput').val();
+            var message = {
+                mentoringId: 1,
+                userId: 2,
+                message: messageInput,
+                createTime: new Date().toISOString()
+            };
+            stompClient.send("/pub/chat/message", {}, JSON.stringify(message));
+        }
+
+        function showMessage(message) {
+            var messageContainer = $('#messageContainer');
+            var messageElement = $('<div class="message">');
+
+            if (message.userId === 1) {
+                messageElement.addClass('sent');
+            } else {
+                messageElement.addClass('received');
+            }
+
+            var messageTextElement = $('<div class="message-text">').text(message.message);
+
+            messageElement.append(messageTextElement);
+            messageContainer.append(messageElement);
+        }
+    </script>
+</head>
+<body>
+<div id="messageContainer" class="message-container"></div>
+<input type="text" id="messageInput" />
+<button onclick="sendMessage()">Send</button>
+</body>
+</html>

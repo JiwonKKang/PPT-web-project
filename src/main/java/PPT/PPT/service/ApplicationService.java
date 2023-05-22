@@ -1,8 +1,8 @@
 package PPT.PPT.service;
 
-import PPT.PPT.domain.Application;
-import PPT.PPT.domain.Member;
-import PPT.PPT.domain.repository.Dto.ApplicationRequestDto;
+import PPT.PPT.domain.entity.Application;
+import PPT.PPT.domain.entity.Member;
+import PPT.PPT.domain.repository.dto.application.ApplicationRequestDto;
 import PPT.PPT.domain.repository.ApplicationRepository;
 import PPT.PPT.domain.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;

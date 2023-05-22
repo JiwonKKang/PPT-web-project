@@ -1,12 +1,10 @@
 package PPT.PPT.domain.repository;
 
-import PPT.PPT.domain.Application;
+import PPT.PPT.domain.entity.Application;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
-import java.util.List;
 
 @Repository
 @RequiredArgsConstructor

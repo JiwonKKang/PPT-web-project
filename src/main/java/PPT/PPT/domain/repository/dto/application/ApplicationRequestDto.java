@@ -1,6 +1,5 @@
-package PPT.PPT.domain.repository.Dto;
+package PPT.PPT.domain.repository.dto.application;
 
-import PPT.PPT.domain.Application;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

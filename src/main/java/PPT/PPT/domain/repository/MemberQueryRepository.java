@@ -1,19 +1,16 @@
 package PPT.PPT.domain.repository;
 
-import PPT.PPT.domain.Member;
-import PPT.PPT.domain.QMember;
-import com.querydsl.core.types.Predicate;
+import PPT.PPT.domain.entity.Member;
+import PPT.PPT.domain.entity.QMember;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
-import static PPT.PPT.domain.QMember.*;
+import static PPT.PPT.domain.entity.QMember.*;
 
 @Repository
 public class MemberQueryRepository {
@@ -30,6 +27,14 @@ public class MemberQueryRepository {
                 .from(member)
                 .where(skillLike(cond.getSkill()), companyLike(cond.getCompany()))
                 .limit(1000)
+                .fetch();
+    }
+
+    public List<Member> findMentorByInterest(String interest) {
+        return query.select(member)
+                .from(member)
+                .where(member.skill.likeIgnoreCase("%" + interest + "%"))
+                .limit(5)
                 .fetch();
     }
 

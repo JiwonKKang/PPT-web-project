@@ -1,14 +1,16 @@
 package PPT.PPT.service;
 
-import PPT.PPT.domain.Member;
+import PPT.PPT.domain.entity.Member;
 import PPT.PPT.domain.repository.MemberQueryRepository;
 import PPT.PPT.domain.repository.MemberRepository;
 import PPT.PPT.domain.repository.MemberSearch;
+import PPT.PPT.domain.repository.dto.member.MemberResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -30,6 +32,12 @@ public class MemberService {
 
     public List<Member> findMembers(MemberSearch cond) {
         return memberQueryRepository.findMembers(cond);
+    }
+
+    public List<MemberResponseDto> recommendMentor(Long memberId) {
+        Member member = memberRepository.findOne(memberId);
+        List<Member> mentors = memberQueryRepository.findMentorByInterest(member.getInterestSkill());
+        return mentors.stream().map(MemberResponseDto::from).collect(Collectors.toList());
     }
 
 }

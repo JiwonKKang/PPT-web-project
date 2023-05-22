@@ -1,6 +1,6 @@
-package PPT.PPT.domain.repository.Dto;
+package PPT.PPT.domain.repository.dto.mentoring;
 
-import PPT.PPT.domain.Mentoring;
+import PPT.PPT.domain.entity.Mentoring;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,16 +12,16 @@ public class MentoringResponseDto {
 
     private Long id;
     private String title;
-    private Long mentorId;
-    private Long menteeId;
+    private String mentorName;
+    private String menteeName;
 
 
     public static MentoringResponseDto from(Mentoring mentoring) {
         MentoringResponseDto mentoringResponseDto = new MentoringResponseDto();
         mentoringResponseDto.setId(mentoring.getId());
         mentoringResponseDto.setTitle(mentoring.getTitle());
-        mentoringResponseDto.setMentorId(mentoring.getMentor().getId());
-        mentoringResponseDto.setMenteeId(mentoring.getMentee().getId());
+        mentoringResponseDto.setMentorName(mentoring.getMentor().getName());
+        mentoringResponseDto.setMenteeName(mentoring.getMentee().getName());
         return mentoringResponseDto;
     }
 }

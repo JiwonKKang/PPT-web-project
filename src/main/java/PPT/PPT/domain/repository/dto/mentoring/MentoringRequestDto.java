@@ -1,4 +1,4 @@
-package PPT.PPT.domain.repository.Dto;
+package PPT.PPT.domain.repository.dto.mentoring;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,7 +12,5 @@ import lombok.Setter;
 public class MentoringRequestDto {
 
     private Long applicationId;
-    private Long mentorId;
-    private Long menteeId;
     private String title;
 }

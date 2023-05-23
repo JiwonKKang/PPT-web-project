@@ -18,7 +18,6 @@ import java.util.List;
 public class MentoringService {
 
     private final MentoringRepository mentoringRepository;
-    private final MemberRepository memberRepository;
     private final ApplicationService applicationService;
 
     public Long startMentoring(MentoringRequestDto dto) {

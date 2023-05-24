@@ -1,6 +1,6 @@
 package PPT.PPT.controller;
 
-import PPT.PPT.domain.repository.dto.ChatDto;
+import PPT.PPT.domain.dto.chat.ChatDto;
 import PPT.PPT.service.ChatService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

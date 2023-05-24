@@ -3,13 +3,12 @@ package PPT.PPT.service;
 import PPT.PPT.domain.entity.Chat;
 import PPT.PPT.domain.entity.Member;
 import PPT.PPT.domain.entity.Mentoring;
-import PPT.PPT.domain.repository.ChatRepository;
-import PPT.PPT.domain.repository.MemberRepository;
-import PPT.PPT.domain.repository.MentoringRepository;
-import PPT.PPT.domain.repository.dto.ChatDto;
+import PPT.PPT.repository.ChatRepository;
+import PPT.PPT.repository.MemberRepository;
+import PPT.PPT.repository.MentoringRepository;
+import PPT.PPT.domain.dto.chat.ChatDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

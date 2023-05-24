@@ -1,4 +1,4 @@
-package PPT.PPT.domain.repository;
+package PPT.PPT.repository;
 
 import PPT.PPT.domain.entity.Chat;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ public class ChatRepository {
     private final EntityManager em;
 
     public Long save(Chat chat) {
-        em.persist(chat);
+        em.persist(chat);//
         return chat.getId();
     }
 

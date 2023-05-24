@@ -1,7 +1,8 @@
 package PPT.PPT;
 
-import PPT.PPT.domain.repository.ApplicationRepository;
-import PPT.PPT.domain.repository.MemberRepository;
+import PPT.PPT.repository.ApplicationRepository;
+import PPT.PPT.repository.MemberRepository;
+import PPT.PPT.repository.MentoringRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -16,7 +17,7 @@ public class PptApplication {
 
 	@Bean
 	@Profile("local")
-	public TestDataInit testDataInit(MemberRepository memberRepository, ApplicationRepository applicationRepository) {
-		return new TestDataInit(memberRepository, applicationRepository);
+	public TestDataInit testDataInit(MemberRepository memberRepository, ApplicationRepository applicationRepository, MentoringRepository mentoringRepository) {
+		return new TestDataInit(memberRepository, applicationRepository, mentoringRepository);
 	}
 }

@@ -1,4 +1,4 @@
-package PPT.PPT.domain.repository;
+package PPT.PPT.repository;
 
 import PPT.PPT.domain.entity.Application;
 import lombok.RequiredArgsConstructor;

@@ -2,9 +2,9 @@ package PPT.PPT.service;
 
 import PPT.PPT.domain.entity.Application;
 import PPT.PPT.domain.entity.Member;
-import PPT.PPT.domain.repository.dto.application.ApplicationRequestDto;
-import PPT.PPT.domain.repository.ApplicationRepository;
-import PPT.PPT.domain.repository.MemberRepository;
+import PPT.PPT.domain.dto.application.ApplicationRequestDto;
+import PPT.PPT.repository.ApplicationRepository;
+import PPT.PPT.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

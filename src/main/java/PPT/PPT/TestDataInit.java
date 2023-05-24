@@ -2,8 +2,10 @@ package PPT.PPT;
 
 import PPT.PPT.domain.entity.Application;
 import PPT.PPT.domain.entity.Member;
-import PPT.PPT.domain.repository.ApplicationRepository;
-import PPT.PPT.domain.repository.MemberRepository;
+import PPT.PPT.domain.entity.Mentoring;
+import PPT.PPT.repository.ApplicationRepository;
+import PPT.PPT.repository.MemberRepository;
+import PPT.PPT.repository.MentoringRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -17,6 +19,7 @@ public class TestDataInit {
 
     private final MemberRepository memberRepository;
     private final ApplicationRepository applicationRepository;
+    private final MentoringRepository mentoringRepository;
 
     @EventListener(ApplicationReadyEvent.class)
     public void initData() {
@@ -65,5 +68,8 @@ public class TestDataInit {
         applicationRepository.save(Application.createApplication(member10, member12, "최영민님과 함께 프로젝트를 진행하고 싶습니다.", 120000L));
         applicationRepository.save(Application.createApplication(member9, member11, "이지은님과의 프로젝트에 참여하고 싶습니다.", 210000L));
         applicationRepository.save(Application.createApplication(member13, member15, "나현우님과 협업하고 싶습니다.", 140000L));
+        Mentoring mentoring = Mentoring.createMentoring(member6, member7, "멘토링");
+        mentoringRepository.save(mentoring);
+
     }
 }

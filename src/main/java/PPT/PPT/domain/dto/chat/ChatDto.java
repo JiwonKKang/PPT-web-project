@@ -1,10 +1,9 @@
-package PPT.PPT.domain.repository.dto;
+package PPT.PPT.domain.dto.chat;
 
 import PPT.PPT.domain.entity.Chat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.time.LocalDateTime;
 

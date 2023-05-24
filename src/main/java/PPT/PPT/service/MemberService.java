@@ -1,10 +1,10 @@
 package PPT.PPT.service;
 
 import PPT.PPT.domain.entity.Member;
-import PPT.PPT.domain.repository.MemberQueryRepository;
-import PPT.PPT.domain.repository.MemberRepository;
-import PPT.PPT.domain.repository.MemberSearch;
-import PPT.PPT.domain.repository.dto.member.MemberResponseDto;
+import PPT.PPT.repository.MemberQueryRepository;
+import PPT.PPT.repository.MemberRepository;
+import PPT.PPT.repository.MemberSearch;
+import PPT.PPT.domain.dto.member.MemberResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

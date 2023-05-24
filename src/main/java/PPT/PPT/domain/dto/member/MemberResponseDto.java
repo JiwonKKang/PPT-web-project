@@ -1,4 +1,4 @@
-package PPT.PPT.domain.repository.dto.member;
+package PPT.PPT.domain.dto.member;
 
 import PPT.PPT.domain.entity.Member;
 import lombok.AllArgsConstructor;

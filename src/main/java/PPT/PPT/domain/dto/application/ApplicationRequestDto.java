@@ -1,4 +1,4 @@
-package PPT.PPT.domain.repository.dto.application;
+package PPT.PPT.domain.dto.application;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ApplicationRequestDto {
+public class  ApplicationRequestDto {
 
     private Long mentorId;
     private Long menteeId;

@@ -1,9 +1,9 @@
 package PPT.PPT.controller;
 
 import PPT.PPT.domain.entity.Member;
-import PPT.PPT.domain.repository.dto.member.MemberRequestDto;
-import PPT.PPT.domain.repository.dto.member.MemberResponseDto;
-import PPT.PPT.domain.repository.MemberSearch;
+import PPT.PPT.domain.dto.member.MemberRequestDto;
+import PPT.PPT.domain.dto.member.MemberResponseDto;
+import PPT.PPT.repository.MemberSearch;
 import PPT.PPT.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller
 @RequiredArgsConstructor

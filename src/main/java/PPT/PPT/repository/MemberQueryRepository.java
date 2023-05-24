@@ -1,7 +1,6 @@
-package PPT.PPT.domain.repository;
+package PPT.PPT.repository;
 
 import PPT.PPT.domain.entity.Member;
-import PPT.PPT.domain.entity.QMember;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.stereotype.Repository;

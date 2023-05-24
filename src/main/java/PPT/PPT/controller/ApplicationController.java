@@ -1,8 +1,8 @@
 package PPT.PPT.controller;
 
 import PPT.PPT.domain.entity.Application;
-import PPT.PPT.domain.repository.dto.application.ApplicationRequestDto;
-import PPT.PPT.domain.repository.dto.application.ApplicationResponseDto;
+import PPT.PPT.domain.dto.application.ApplicationRequestDto;
+import PPT.PPT.domain.dto.application.ApplicationResponseDto;
 import PPT.PPT.service.ApplicationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

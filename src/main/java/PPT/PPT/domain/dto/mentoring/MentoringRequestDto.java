@@ -1,4 +1,4 @@
-package PPT.PPT.domain.repository.dto.mentoring;
+package PPT.PPT.domain.dto.mentoring;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

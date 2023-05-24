@@ -1,8 +1,8 @@
 package PPT.PPT.controller;
 
 import PPT.PPT.domain.entity.Mentoring;
-import PPT.PPT.domain.repository.dto.mentoring.MentoringRequestDto;
-import PPT.PPT.domain.repository.dto.mentoring.MentoringResponseDto;
+import PPT.PPT.domain.dto.mentoring.MentoringRequestDto;
+import PPT.PPT.domain.dto.mentoring.MentoringResponseDto;
 import PPT.PPT.service.MentoringService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -14,7 +14,7 @@ public class ChatRepository {
     private final EntityManager em;
 
     public Long save(Chat chat) {
-        em.persist(chat);//
+        em.persist(chat);
         return chat.getId();
     }
 

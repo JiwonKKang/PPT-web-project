@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 @RestController
 @Slf4j
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class MentoringController {
 
     private final MentoringService mentoringService;

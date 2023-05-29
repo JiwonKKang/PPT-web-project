@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @RestController
 @Slf4j
+@CrossOrigin(origins = "*")
 public class ApplicationController {
 
     private final ApplicationService applicationService;

@@ -15,6 +15,7 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 @Slf4j
+@CrossOrigin(origins = "*")
 public class ChatController {
 
     private final SimpMessagingTemplate template;

@@ -17,6 +17,7 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 @Slf4j
+@CrossOrigin(origins = "*")
 public class MemberController {
 
     private final MemberService memberService;

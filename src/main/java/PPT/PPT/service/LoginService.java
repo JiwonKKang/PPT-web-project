@@ -6,22 +6,33 @@ import PPT.PPT.domain.entity.Application;
 import PPT.PPT.domain.entity.Member;
 import PPT.PPT.domain.entity.Mentoring;
 import PPT.PPT.repository.MemberRepository;
+import PPT.PPT.security.JwtUtil;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
 
-@Service
+
 @Transactional
 @RequiredArgsConstructor
+@Service
 public class LoginService {
+
+    @Value("${jwt.secret}")
+    private String secretKey;
+    private Long expiredMs = 1000 * 60 * 60l;
+
 
     private final MemberRepository memberRepository;
 
-    public Member login(LoginForm form) {
-        return memberRepository.findByEmail(form.getEmail())
+    public String login(LoginForm form) {
+        Member loginMember = memberRepository.findByEmail(form.getEmail())
                 .filter(member -> member.getPassword().equals(form.getPassword()))
-                .orElse(null);
+                .orElseThrow(()-> new IllegalStateException("회원을 찾을수 없습니다."));
+        return JwtUtil.creatJwt(loginMember.getEmail(),secretKey,expiredMs);
+
+
     }
 }
+

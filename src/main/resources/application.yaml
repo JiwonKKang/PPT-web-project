@@ -24,3 +24,6 @@ server:
       tracking-modes: cookie
       timeout: 60
 
+jwt:
+  secret: hello.world.ee.ff
+

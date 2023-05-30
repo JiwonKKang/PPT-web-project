@@ -1,6 +1,6 @@
 package PPT.PPT.controller;
 
-import PPT.PPT.JwtTokenProvider;
+
 import PPT.PPT.domain.dto.member.LoginForm;
 import PPT.PPT.domain.entity.Member;
 import PPT.PPT.service.LoginService;
@@ -25,21 +25,21 @@ import javax.servlet.http.HttpSession;
 public class LoginController {
 
     private final LoginService loginService;
-    private final JwtTokenProvider jwtTokenProvider;
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginForm form, HttpServletRequest req) {
-        Member loginMember = loginService.login(form);
+    public ResponseEntity<String> login(@RequestBody LoginForm form) {
 
-        if (loginMember != null) {
-            String token = jwtTokenProvider.createToken(loginMember.getUsername(), loginMember.getRoles());
+        try {
+            String token = loginService.login(form);
             return ResponseEntity.ok().body(token);
+        } catch (IllegalStateException e) {
+            return ResponseEntity.badRequest().body("회원을 찾을 수 없습니다.");
+
         }
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("요청한 이메일을 찾을 수 없습니다.");
     }
 
     @PostMapping("/test")
-    public String test() { 
+    public String test() {
         return "테스트 통과!";
     }
 

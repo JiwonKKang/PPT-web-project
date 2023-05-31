@@ -1,5 +1,6 @@
 package PPT.PPT.repository;
 
+import PPT.PPT.domain.dto.member.UpdateMemberDto;
 import PPT.PPT.domain.entity.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -23,16 +24,17 @@ public class MemberRepository {
         return em.find(Member.class, id);
     }
 
-    public List<Member> findAll() {
-        return em.createQuery("select m from Member m", Member.class)
-                .getResultList();
-    }
-
     public Optional<Member> findByEmail(String email) {
         return em.createQuery("select m from Member m where m.email = :email", Member.class)
                 .setParameter("email", email)
                 .getResultList()
                 .stream().findAny();
+    }
+
+    public void updateMember(UpdateMemberDto dto) {
+        Member member = findByEmail(dto.getEmail()).get();
+        member.setSkill(dto.getSkill());
+        member.setInterestSkill(dto.getInterestSkill());
     }
 
 }

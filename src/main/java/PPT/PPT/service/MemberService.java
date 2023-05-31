@@ -1,9 +1,10 @@
 package PPT.PPT.service;
 
+import PPT.PPT.domain.dto.member.UpdateMemberDto;
 import PPT.PPT.domain.entity.Member;
 import PPT.PPT.repository.MemberQueryRepository;
 import PPT.PPT.repository.MemberRepository;
-import PPT.PPT.repository.MemberSearch;
+import PPT.PPT.domain.dto.member.MemberSearch;
 import PPT.PPT.domain.dto.member.MemberResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -38,6 +39,11 @@ public class MemberService {
         Member member = memberRepository.findOne(memberId);
         List<Member> mentors = memberQueryRepository.findMentorByInterest(member.getInterestSkill());
         return mentors.stream().map(MemberResponseDto::from).collect(Collectors.toList());
+    }
+
+    @Transactional
+    public void update(UpdateMemberDto dto) {
+        memberRepository.updateMember(dto);
     }
 
 }

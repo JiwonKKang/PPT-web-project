@@ -1,5 +1,6 @@
 package PPT.PPT.repository;
 
+import PPT.PPT.domain.dto.member.MemberSearch;
 import PPT.PPT.domain.entity.Member;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
@@ -33,7 +34,7 @@ public class MemberQueryRepository {
         return query.select(member)
                 .from(member)
                 .where(member.skill.likeIgnoreCase("%" + interest + "%"))
-                .limit(5)
+                .limit(10)
                 .fetch();
     }
 

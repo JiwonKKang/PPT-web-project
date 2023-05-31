@@ -1,9 +1,10 @@
 package PPT.PPT.controller;
 
+import PPT.PPT.domain.dto.member.UpdateMemberDto;
 import PPT.PPT.domain.entity.Member;
 import PPT.PPT.domain.dto.member.MemberRequestDto;
 import PPT.PPT.domain.dto.member.MemberResponseDto;
-import PPT.PPT.repository.MemberSearch;
+import PPT.PPT.domain.dto.member.MemberSearch;
 import PPT.PPT.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -60,5 +61,11 @@ public class MemberController {
     public ResponseEntity<List<MemberResponseDto>> recommendMentor(@PathVariable("id") Long id) {
         List<MemberResponseDto> memberResponseDtos = memberService.recommendMentor(id);
         return ResponseEntity.ok().body(memberResponseDtos);
+    }
+
+    @PostMapping("/members/update")
+    public ResponseEntity update(@RequestBody UpdateMemberDto updateMemberDto) {
+        memberService.update(updateMemberDto);
+        return ResponseEntity.ok().body(null);
     }
 }

@@ -6,6 +6,7 @@ import PPT.PPT.domain.dto.mentoring.MentoringRequestDto;
 import PPT.PPT.domain.entity.Application;
 import PPT.PPT.domain.entity.Member;
 import PPT.PPT.domain.entity.Mentoring;
+import PPT.PPT.exception.MemberNotFoundException;
 import PPT.PPT.repository.MemberRepository;
 import PPT.PPT.security.JwtUtil;
 import lombok.RequiredArgsConstructor;
@@ -30,7 +31,7 @@ public class LoginService {
     public LoginResponseDto login(LoginForm form) {
         Member loginMember = memberRepository.findByEmail(form.getEmail())
                 .filter(member -> member.getPassword().equals(form.getPassword()))
-                .orElseThrow(()-> new IllegalStateException("회원을 찾을수 없습니다."));
+                .orElseThrow(()-> new MemberNotFoundException("회원을 찾을수 없습니다."));
         String token = JwtUtil.creatJwt(loginMember.getEmail(), secretKey, expiredMs);
         return new LoginResponseDto(token, loginMember.getId(), loginMember.getEmail(), loginMember.getName());
 

@@ -3,6 +3,7 @@ package PPT.PPT.controller;
 
 import PPT.PPT.domain.dto.member.LoginForm;
 import PPT.PPT.domain.dto.member.LoginResponseDto;
+import PPT.PPT.exception.MemberNotFoundException;
 import PPT.PPT.service.LoginService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,16 +26,12 @@ public class LoginController {
 
     @PostMapping("/login")
     public ResponseEntity<LoginResponseDto> login(@RequestBody LoginForm form) {
+        LoginResponseDto responseDto = loginService.login(form);
+        return ResponseEntity.ok().body(responseDto);
 
-        try {
-            LoginResponseDto responseDto = loginService.login(form);
-            return ResponseEntity.ok().body(responseDto);
-        } catch (IllegalStateException e) {
-            return ResponseEntity.badRequest().body(null);
-        }
     }
 
-    @PostMapping("/test")
+    @PostMapping("/test")//JWT인증 테스트
     public String test() {
         return "테스트 통과!";
     }

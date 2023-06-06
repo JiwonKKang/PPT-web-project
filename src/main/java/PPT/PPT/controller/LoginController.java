@@ -31,7 +31,7 @@ public class LoginController {
 
     }
 
-    @PostMapping("/test")//JWT인증 테스트
+    @PostMapping("/test")
     public String test() {
         return "테스트 통과!";
     }

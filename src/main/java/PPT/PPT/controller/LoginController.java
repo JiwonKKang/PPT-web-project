@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
 
 @RestController
 @RequiredArgsConstructor
-@Slf4j
+@Slf4j//
 @CrossOrigin(origins = "*")
 public class LoginController {
 

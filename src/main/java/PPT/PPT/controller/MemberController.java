@@ -35,7 +35,7 @@ public class MemberController {
         return ResponseEntity.ok().body(responseDto);
     }
 
-    @GetMapping("/members")
+    @PostMapping("/members")
     public ResponseEntity<List<MemberResponseDto>> getMembers(@RequestBody MemberSearch cond) {
         List<Member> members = memberService.findMembers(cond);
         List<MemberResponseDto> dtos = members

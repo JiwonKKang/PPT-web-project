@@ -25,7 +25,7 @@ public class ApplicationService {
         Member mentee = memberRepository.findOne(dto.getMenteeId());
         Member mentor = memberRepository.findOne(dto.getMentorId());
 
-        Application application = Application.createApplication(mentee, mentor, dto.getMotivation(), dto.getPrice());
+        Application application = Application.createApplication(mentor, mentee, dto.getMotivation(), dto.getPrice());
 
         return applicationRepository.save(application);
     }

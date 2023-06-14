@@ -13,12 +13,10 @@
 
 ## Main 
 
-회원의 흥미기술에 부합하는 멘토가 추천됩니다.
 ![메인 페이지](https://github.com/JiwonKKang/PPT-web-project-back/assets/128073698/4d6c2f9c-46d8-4e4b-b6d3-83fdfaabb0e7)
 
 <hr>
 
-실시간 채팅방입니다.
 ## Chat Room
 ![실시간 채팅방](https://github.com/JiwonKKang/PPT-web-project-back/assets/128073698/46ef7a1d-6850-4f8d-a5a4-1393024fb8fa)
 

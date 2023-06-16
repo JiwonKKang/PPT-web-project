@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Slf4j
 @CrossOrigin(origins = "*")
-public class MemberController {//
+public class MemberController {
 
     private final MemberService memberService;
 

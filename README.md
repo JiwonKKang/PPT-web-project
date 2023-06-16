@@ -12,6 +12,7 @@
 <hr>
 
 ## Main 
+
 ![메인 페이지](https://github.com/JiwonKKang/PPT-web-project-back/assets/128073698/4d6c2f9c-46d8-4e4b-b6d3-83fdfaabb0e7)
 
 <hr>

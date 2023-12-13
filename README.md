@@ -21,3 +21,7 @@ Front : HTML, CSS, JQuery
 ## Chat Room
 ![실시간 채팅방](https://github.com/JiwonKKang/PPT-web-project-back/assets/128073698/46ef7a1d-6850-4f8d-a5a4-1393024fb8fa)
 
+
+
+> ## 개선사항
+- 엔티티를 그대로 반환하고있음 => DTO 및 Response객체 생성
